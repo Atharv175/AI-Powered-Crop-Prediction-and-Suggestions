@@ -1,0 +1,186 @@
+<!--<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crop Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Crop Prediction and Suggestions</h1>
+        </div>
+        <form id="dataForm">
+            <div class="input-group">
+                <label for="N">Nitrogen (N) level:</label>
+                <input type="number" name="N" id="N" required>
+            </div>
+            <div class="input-group">
+                <label for="P">Phosphorus (P) level:</label>
+                <input type="number" name="P" id="P" required>
+            </div>
+            <div class="input-group">
+                <label for="K">Potassium (K) level:</label>
+                <input type="number" name="K" id="K" required>
+            </div>
+            <div class="input-group">
+                <label for="temperature">Temperature:</label>
+                <input type="number" name="temperature" id="temperature" required>
+            </div>
+            <div class="input-group">
+                <label for="humidity">Humidity:</label>
+                <input type="number" name="humidity" id="humidity" required>
+            </div>
+            <div class="input-group">
+                <label for="ph">pH level:</label>
+                <input type="number" name="ph" id="ph" required>
+            </div>
+            <div class="input-group">
+                <label for="rainfall">Rainfall:</label>
+                <input type="number" name="rainfall" id="rainfall" required>
+            </div>
+            <button type="submit">Predict</button>
+        </form>
+        <div id="result"></div>
+
+    </div>
+    <footer>
+        Designed by Atharv Patel &copy; 2024
+    </footer>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+
+    <script src="//code.tidio.co/skhejh0ripsax4jwvraap0ao0rjaerxo.js" async></script>
+
+
+</body>
+</html>
+-->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crop Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        .suggestion-box {
+            border: 1px solid #ccc;
+            background-color: #f9f9f9;
+            padding: 10px;
+            margin-top: 20px;
+        }
+        .suggestion-box h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        .suggestion-box ul {
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+        .predicted-crop {
+            font-weight: bold;
+            color: #007bff;
+        }
+        .suggestion-link {
+            color: #007bff;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Crop Prediction and Suggestions</h1>
+        </div>
+        <form id="dataForm" method="POST" action="/predict">
+            <div class="input-group">
+                <label for="N">Nitrogen (N) level:</label>
+                <input type="number" name="N" id="N" required>
+            </div>
+            <div class="input-group">
+                <label for="P">Phosphorus (P) level:</label>
+                <input type="number" name="P" id="P" required>
+            </div>
+            <div class="input-group">
+                <label for="K">Potassium (K) level:</label>
+                <input type="number" name="K" id="K" required>
+            </div>
+            <div class="input-group">
+                <label for="temperature">Temperature:</label>
+                <input type="number" name="temperature" id="temperature" required>
+            </div>
+            <div class="input-group">
+                <label for="humidity">Humidity:</label>
+                <input type="number" name="humidity" id="humidity" required>
+            </div>
+            <div class="input-group">
+                <label for="ph">pH level:</label>
+                <input type="number" name="ph" id="ph" required>
+            </div>
+            <div class="input-group">
+                <label for="rainfall">Rainfall:</label>
+                <input type="number" name="rainfall" id="rainfall" required>
+            </div>
+            <button type="submit">Predict</button>
+        </form>
+        {% if predicted_crop %}
+        <div id="result">
+            <h2>Prediction Result</h2>
+            <p>Predicted Crop: <span class="predicted-crop">{{ predicted_crop }}</span></p>
+            <p>Weather Stress Index (WSI): {{ wsi }}</p>
+            <div class="suggestion-box">
+                <h3>Suggestions (English)</h3>
+                <ul>
+                    {% for suggestion in suggestions %}
+                    <li>{{ suggestion }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="suggestion-box">
+                <h3>सुझाव (हिंदी)</h3>
+                <ul>
+                    {% for suggestion in hindi_suggestions %}
+                    <li>{{ suggestion }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="suggestion-box">
+                <h3>Suggestions (Hinglish)</h3>
+                <ul>
+                    {% for suggestion in hinglish_suggestions %}
+                    <li>{{ suggestion }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="suggestion-box">
+                <h3>Fertilizer Links</h3>
+                <ul>
+                    <li>Low Nitrogen Level Fertilizer: <a href="https://amzn.in/d/gxsCB5S" class="suggestion-link" target="_blank">Link</a></li>
+                    <li>Low Phosphorus Based Fertilizer: <a href="https://amzn.in/d/fAdh8GE" class="suggestion-link" target="_blank">Link</a></li>
+                    <li>PH Up and Down Fertilizer: <a href="https://amzn.in/d/1oQMar9" class="suggestion-link" target="_blank">Link</a></li>
+                    <li>General Fertilizer: <a href="https://amzn.in/d/bQA3BUF" class="suggestion-link" target="_blank">Link</a></li>
+                </ul>
+            </div>
+        </div>
+        {% endif %}
+ <!-- Add images to the borders -->
+
+
+</div>
+    <!-- Your existing HTML content goes here -->
+
+<!-- Add transparent background div -->
+<div class="transparent-background"></div>
+
+    <footer>
+        Designed by Atharv Patel &copy; 2024
+    </footer>
+    <script src="//code.tidio.co/skhejh0ripsax4jwvraap0ao0rjaerxo.js" async></script>
+</body>
+</html>

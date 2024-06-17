@@ -1,0 +1,176 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.header {
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: 3em;
+    color: #2c3e50;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 0;
+    background: linear-gradient(90deg, #00c6ff, #0072ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+form {
+    margin-top: 20px;
+}
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+    font-weight: bold;
+}
+
+input[type="number"] {
+    width: calc(100% - 24px);
+    padding: 12px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+    box-sizing: border-box;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+#result, #suggestion {
+    text-align: center;
+    font-size: 1.2em;
+    margin-top: 20px;
+    color: #333;
+}
+
+footer {
+    text-align: center;
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+
+.container {
+    position: relative; /* Add position relative to container */
+}
+
+.image-border-left,
+.image-border-right {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    padding :10px;
+}
+
+.image-border-left {
+    left: 0;
+    width: 20%; /* Adjust width as needed */
+    top:20%;
+}
+
+.image-border-right {
+    right: 0;
+    width: 20%; /* Adjust width as needed */
+}
+
+.image-border-left img,
+.image-border-right img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
+    /* Set the first image as background */
+
+}
+
+.transparent-background {
+    /* Set the second image as a transparent overlay */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+
+    background-image: url('https://previews.123rf.com/images/prasannapatil/prasannapatil2102/prasannapatil210204057/164555647-young-indian-farmer-at-agriculture-field.jpg');
+    /*https://previews.123rf.com/images/prasannapatil/prasannapatil2102/prasannapatil210204057/164555647-young-indian-farmer-at-agriculture-field.jpg*/
+    /*https://th-i.thgim.com/public/sci-tech/agriculture/87sx5z/article30131510.ece/alternates/FREE_1200/NEWS2FARMER*/
+    /*https://mc.webpcache.epapr.in/mcms.php?size=large&in=https://mcmscache.epapr.in/post_images/website_350/post_21350209/full.jpg*/
+    background-repeat: no-repeat;
+    background-size: cover;
+
+      background-position: center left;
+    opacity: 0.7; /* Adjust the opacity as needed */
+    z-index: -1; /* Ensure the transparent background is behind the content */
+     background-position: -10px center;
+}
+
+.container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.8); /* Add transparency to container background */
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+.suggestion-box ul {
+    list-style-type: disc;
+    padding-left: 15px; /* Adjust padding to align bullet points */
+    margin: 0; /* Remove default margin */
+}
+
+.suggestion-box ul li {
+    margin-left: 0px; /* Remove default margin */
+
+}
+
+

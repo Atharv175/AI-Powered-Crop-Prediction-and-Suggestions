@@ -24,15 +24,15 @@ User-friendly web interface for input and result display.
 Dataset
 The dataset used in this project includes the following features:
 
-Nitrogen (N) level
-Phosphorus (P) level
-Potassium (K) level
-Temperature
-Humidity
-pH level
-Rainfall
-Crop Label (target variable)
-Weather Stress Index (WSI)
+Nitrogen (N) level,
+Phosphorus (P) level,
+Potassium (K) level,
+Temperature,
+Humidity,
+pH level,
+Rainfall,
+Crop Label (target variable),
+Weather Stress Index (WSI),
 Models Used
 The following machine learning models have been implemented and evaluated:
 
